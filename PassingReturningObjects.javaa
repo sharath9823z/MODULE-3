@@ -1,0 +1,48 @@
+class StudentPR {
+    String name;
+    int marks;
+
+    StudentPR(String name, int marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+}
+
+class ExamplePR {
+    static void updateMarks(StudentPR s, int extra) {
+        s.marks += extra;
+    }
+}
+
+class Circle {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    Area getArea() {
+        double a = Math.PI * radius * radius;
+        return new Area(a);
+    }
+}
+
+class Area {
+    double value;
+
+    Area(double value) {
+        this.value = value;
+    }
+}
+
+public class PassingReturningObjects {
+    public static void main(String[] args) {
+        StudentPR s1 = new StudentPR("Jit", 80);
+        ExamplePR.updateMarks(s1, 10);
+        System.out.println(s1.name + " " + s1.marks);
+
+        Circle c = new Circle(3.0);
+        Area areaObj = c.getArea();
+        System.out.println("Area: " + areaObj.value);
+    }
+}
